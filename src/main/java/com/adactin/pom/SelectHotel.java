@@ -13,7 +13,7 @@ public class SelectHotel {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//input[@id='radiobutton_2']")
+	@FindBy(xpath = "//input[@type='radio']")
 	private WebElement radiobutton;
 	
 	@FindBy(xpath = "//input[@id='continue']")

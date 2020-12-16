@@ -1,48 +1,50 @@
 Feature: Verify the user able to book the hotel in adactin application
 
-  Scenario: To verify user able to login the adactin application
+Scenario Outline: To verify user able to login the adactin application
     Given User should launch the application
-    When Enter the valid user name
-    And Enter the valid password
+    When Enter the valid "<username>" user name
+    And Enter the valid "<password>" password
     And Click the login button
     Then Verify Homepage navigates to the search hotel page
 
-   Scenario: Search the hotels in search hotel page
-    Given Search hotels page is displayed
-    When select the location by drop down
-    When select the hotel by drop down
-    When select the room type by drop down
-    And  Select the no of rooms
-    And Enter the check in date
-    And Enter the check out date
-    And Select the Adult per room
-    And Select the children per room
-    Then click on the search button
+Examples:
+				|username|password|
+				|AAA|123|
+				|test|@rgch|
+				|raja1669|@RAVIGIRI@|
+
+   
+ Scenario: Search the hotels in search hotel page
+    When select the location "Brisbane" as "value" by drop down 
+    When select the hotel "Hotel Sunshine" as "value" by drop down
+    When select the room type "Deluxe" as "value" by drop down
+    And  Select the no of rooms "4" as "value" by drop down
+    And Enter the check in date "02/12/2020" as "value"
+    And Enter the check out date "010/12/2020" as "value"
+    And Select the Adult per room "3" as "value"
+    And Select the children per room 
+    Then click on the search button 
 
   Scenario: Select the hotel
-    Given User should complete the search hotel page
     When select the hotel by radio button
     Then click on continue
 
+  @RegressionTest
   Scenario: Verify user able to Book a Hotel
-    Given User should complete the select hotel page
-    When Enter the First name
-    When Enter the last name
-    And Enter the Billing address
-    And Enter the Credit card no
-    And Select the Credit card Type
-    And Select the Expiery date
-    And Select the Year
-    And Enter the CVV no
+    When Enter the First name as "Raja"
+    When Enter the last name  as "Ravi"
+    And Enter the Billing address as "32/32 sasthri 1 st cross street"
+    And Enter the Credit card no as "12345678978945612"
+    And Select the Credit card Type "VISA" as "value"
+    And Select the Expiery date as "April" as "value"
+    And Select the Year as "2020"as "value"
+    And Enter the CVV no "125" as "value"
     Then Click on the Book now button
 
   Scenario: Verify the booking confirmation
-    Given User Should complete the Booking a Hotel page
     When Verify the booking is confirmed
     Then click on search itinerary
 
   Scenario: Verify user able to logout successful
-    Given User launches the application
     When Verify the Order Id confirmation
-    Then Click on the Logout
-   
+    Then Click on the Logout  
