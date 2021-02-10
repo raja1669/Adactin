@@ -17,19 +17,21 @@ public class ConfigurationReader {
 	}
 	public  String getBrowserName() {
 		String browsername = ps.getProperty("BrowserName");
-		System.out.println(browsername);
+		//System.out.println(browsername);
 		return browsername;
 	}
 	public String geturl() {
 		String url = ps.getProperty("url");
-		System.out.println(url);
+		//System.out.println(url);
 		return url;
 	}
-		public static void main(String[] args) throws IOException {
-			ConfigurationReader cr = new ConfigurationReader();
-			cr.getBrowserName();
-			cr.geturl();
-		}
+//		public static void main(String[] args) throws IOException {
+//			ConfigurationReader cr = new ConfigurationReader();
+//			String browserName = cr.getBrowserName();
+//			System.out.println(browserName);  
+//			String geturl = cr.geturl();
+//			System.out.println(geturl);
+//		}
 }
 
 

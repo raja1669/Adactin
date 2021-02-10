@@ -10,8 +10,8 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(features = "@Report/FailedScenario.txt", 
 glue = "com/adactin/stepdefinition", 
 plugin = 
-{"pretty", "html:Report/CucumberReport", "json.Report/Cucumber.json",
-"com.cucumber.listener.ExtentCucumberFormatter:Report2/CucumberExtentReport2.html" ,
+{//"pretty", "html:Report/CucumberReport", "json.Report/Cucumber.json",
+"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:Report2/CucumberExtentReport2.html" ,
 "rerun:Report/FailedScenario.txt"}, 
 monochrome = true, 
 dryRun = false, 

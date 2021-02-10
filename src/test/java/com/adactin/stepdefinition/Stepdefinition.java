@@ -73,9 +73,8 @@ public class Stepdefinition extends Baseclass {
 
 	@Then("^Verify Homepage navigates to the search hotel page$")
 	public void verify_Homepage_navigates_to_the_search_hotel_page() throws Throwable {
-		WebElement e = driver.findElement(By.xpath("//td[text()='Welcome to Adactin Group of Hotels']"));
-		e.isDisplayed();
-		Assert.assertEquals(e, e);
+		//WebElement e = driver.findElement(By.xpath("//td[text()='Welcome to Adactin Group of Hotels']"));
+		Assert.assertEquals(true, isDisplayed(pm.getSearchHotel().getWelcome()));
 		System.out.println("search Hotel is displayed");
 	}
 
@@ -135,18 +134,18 @@ public class Stepdefinition extends Baseclass {
 	}
 
 	@When("^Enter the First name as \"([^\"]*)\"$")
-	public void enter_the_First_name_as(String value) throws Throwable {
-		inputvaluetoelement(pm.getBookHotelPage().getFirstname(), value);
+	public void enter_the_First_name_as(String firstname) throws Throwable {
+		inputvaluetoelement(pm.getBookHotelPage().getFirstname(), firstname);
 	}
 
 	@When("^Enter the last name  as \"([^\"]*)\"$")
-	public void enter_the_last_name_as(String value) throws Throwable {
-		inputvaluetoelement(pm.getBookHotelPage().getLast_name(), value);
+	public void enter_the_last_name_as(String lastname) throws Throwable {
+		inputvaluetoelement(pm.getBookHotelPage().getLast_name(), lastname);
 	}
 
 	@When("^Enter the Billing address as \"([^\"]*)\"$")
-	public void enter_the_Billing_address_as(String value) throws Throwable {
-		inputvaluetoelement(pm.getBookHotelPage().getBillingaddress(), value);
+	public void enter_the_Billing_address_as(String billing) throws Throwable {
+		inputvaluetoelement(pm.getBookHotelPage().getBillingaddress(), billing);
 	}
 
 	@When("^Enter the Credit card no as \"([^\"]*)\"$")
@@ -154,24 +153,25 @@ public class Stepdefinition extends Baseclass {
 		inputvaluetoelement(pm.getBookHotelPage().getCreditcardno(), value);
 	}
 
-	@When("^Select the Credit card Type \"([^\"]*)\" as \"([^\"]*)\"$")
-	public void select_the_Credit_card_Type_as(String credit, String value) throws Throwable {
-		selectdropdown(pm.getBookHotelPage().getCreditcardtype(), credit, value);
+	
+	@When("^Select the Credit card Type \"([^\"]*)\"$")
+	public void select_the_Credit_card_Type(String credit) throws Throwable {
+		selectdropdown(pm.getBookHotelPage().getCreditcardtype(), credit, "value");
 	}
 
-	@When("^Select the Expiery date as \"([^\"]*)\" as \"([^\"]*)\"$")
-	public void select_the_Expiery_date_as_as(String expiery, String value) throws Throwable {
-		selectdropdown(pm.getBookHotelPage().getExpierymonth(), expiery, value);
+	@When("^Select the Expiery date as \"([^\"]*)\"$")
+	public void select_the_Expiery_date_as(String expiery) throws Throwable {
+		selectdropdown(pm.getBookHotelPage().getExpierymonth(), expiery, "text");
 	}
 
-	@When("^Select the Year as \"([^\"]*)\"as \"([^\"]*)\"$")
-	public void select_the_Year_as_as(String year, String value) throws Throwable {
-		selectdropdown(pm.getBookHotelPage().getSelectyear(), year, value);
+	@When("^Select the Year as \"([^\"]*)\"$")
+	public void select_the_Year_as(String year) throws Throwable {
+		selectdropdown(pm.getBookHotelPage().getSelectyear(), year, "value");
 	}
 
-	@When("^Enter the CVV no \"([^\"]*)\" as \"([^\"]*)\"$")
-	public void enter_the_CVV_no_as(String value, String arg2) throws Throwable {
-		inputvaluetoelement(pm.getBookHotelPage().getCvvno(), value);
+	@When("^Enter the CVV no \"([^\"]*)\"$")
+	public void enter_the_CVV_no(String cvvnumber) throws Throwable {
+		inputvaluetoelement(pm.getBookHotelPage().getCvvno(), cvvnumber);
 	}
 
 	@Then("^Click on the Book now button$")
@@ -186,12 +186,14 @@ public class Stepdefinition extends Baseclass {
 
 	@Then("^click on search itinerary$")
 	public void click_on_search_itinerary() throws Throwable {
-
+		clickelement(pm.getBookingConfirmPage().getMyitinerary());
 	}
 
 	@When("^Verify the Order Id confirmation$")
 	public void verify_the_Order_Id_confirmation() throws Throwable {
-		clickelement(pm.getBookedItenaryPage().getSelectall());
+		scrollupanddown(pm.getBookedItenaryPage().getSearchbutton());
+		//clickelement(pm.getBookedItenaryPage().getSelectall());
+		//Thread.sleep(5000);
 	}
 
 	@Then("^Click on the Logout$")

@@ -138,9 +138,36 @@ public class Baseclass {
 		}
 
 	}
+	
+	public static void waitForElement(WebElement element) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 30); //explicit wait
+			wait.until(ExpectedConditions.visibilityOf(element));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static boolean isDisplayed(WebElement element){
+
+		waitForElement(element);
+		try {
+			return element.isDisplayed();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 	public static void clickelement(WebElement element) {
-		element.click();
+		waitForElement(element);
+		try {
+			element.click();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public static void quit() {

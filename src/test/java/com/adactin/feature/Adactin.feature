@@ -10,7 +10,7 @@ Scenario Outline: To verify user able to login the adactin application
 Examples:
 				|username|password|
 				|AAA|123|
-				|test|@rgch|
+				|test|@r785478|
 				|raja1669|@RAVIGIRI@|
 
    
@@ -35,10 +35,10 @@ Examples:
     When Enter the last name  as "Ravi"
     And Enter the Billing address as "32/32 sasthri 1 st cross street"
     And Enter the Credit card no as "12345678978945612"
-    And Select the Credit card Type "VISA" as "value"
-    And Select the Expiery date as "April" as "value"
-    And Select the Year as "2020"as "value"
-    And Enter the CVV no "125" as "value"
+    And Select the Credit card Type "VISA" 
+    And Select the Expiery date as "April"
+    And Select the Year as "2020"
+    And Enter the CVV no "125"
     Then Click on the Book now button
 
   Scenario: Verify the booking confirmation
