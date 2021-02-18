@@ -13,6 +13,10 @@ public class BookItinerary {
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(xpath="//input[@id='search_hotel']")
+	private WebElement searchbutton;
+	
+
 	@FindBy(xpath="(//input[@type='checkbox'])[1]")
 	private WebElement selectall;
 	
@@ -30,6 +34,10 @@ public class BookItinerary {
 
 	public WebElement getLogout() {
 		return logout;
+	}
+	
+	public WebElement getSearchbutton() {
+		return searchbutton;
 	}
 	
 }

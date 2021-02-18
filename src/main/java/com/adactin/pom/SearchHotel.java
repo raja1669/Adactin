@@ -14,6 +14,9 @@ public class SearchHotel {
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(xpath = "//td[text()='Welcome to Adactin Group of Hotels']")
+	private WebElement welcome;
+	
 	@FindBy(xpath = "//select[@id='location']")
 	private WebElement location;
 	
@@ -70,6 +73,10 @@ public class SearchHotel {
 
 	public WebElement getSearch() {
 		return search;
+	}
+	
+	public WebElement getWelcome() {
+		return welcome;
 	}
 	
 	

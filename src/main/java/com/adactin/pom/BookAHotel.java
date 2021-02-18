@@ -29,10 +29,10 @@ public class BookAHotel {
 	@FindBy(xpath = "//select[@class='select_combobox']")
 	private WebElement creditcardtype;
 	
-	@FindBy(xpath = "(//select[@class='select_combobox2'])[1]")
+	@FindBy(xpath = "//select[@id='cc_exp_month']")
 	private WebElement Expierymonth;
 	
-	@FindBy(xpath = "(//select[@class='select_combobox2'])[2]")
+	@FindBy(xpath = "//select[@id='cc_exp_year']")
 	private WebElement selectyear;
 
 	@FindBy(xpath = "//input[@name='cc_cvv']")
